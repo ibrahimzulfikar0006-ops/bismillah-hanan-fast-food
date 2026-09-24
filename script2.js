@@ -11,7 +11,6 @@ const MENU_DATA = [
      SOUP
      ----------------------------------------------------------------------- */
 
-	
   {
     id: "soup",
     name: "Soup",
@@ -48,7 +47,7 @@ const MENU_DATA = [
       { name: "Malai Boti", price: 10000 },
       { name: "Beef Seekh Kabab", price: 10000 },
       { name: "Chicken Seekh Kabab", price: 10000 },
-      { name: "Chicken Wings", price: 10000 },
+      { name: "Chicken Wings", price: 12000 },
       { name: "Paneer Tikka", price: 12000 },
       { name: "Mutton Chops", price: 12000 },
       { name: "Bbq Prawns", price: 15000 }
@@ -133,7 +132,8 @@ const MENU_DATA = [
       { name: "Beef Noodle", price: 10000 },
       { name: "Prawns Noodle", price: 12000 },
       { name: "Mix Noodle", price: 12000 },
-      { name: "Schezwan Noodle (Chicken/Beef)", price: 12000 }
+	  { name: "Schezwan Noodle (Chicken)", price: 12000 },
+      { name: "Schezwan Noodle (Beef)", price: 12000 }
     ]
   },
 
@@ -278,7 +278,7 @@ const MENU_DATA = [
       { name: "Chicken Pepper Steak", price: 18000 },
       { name: "Hawaii Chicken Steak", price: 18000 },
       { name: "American Chicken Steak", price: 15000 },
-      { name: "Cowboy Chicknen Steak", price: 15000 },
+      { name: "Cowboy Chicken Steak", price: 15000 },
       { name: "Cheese Mustard Chicken Steak", price: 15000 },
       { name: "French Onion Chicken Steak", price: 15000 },
       { name: "Hannan Special Chicken Steak", price: 15000 }
@@ -336,36 +336,35 @@ const MENU_DATA = [
   {
     id: "hanan-platters",
     name: "Platters",
-    note: "Take away Extra Charges 3,000/= are included in this price",
 
     items: [
       {
         name: "Chicken Platter",
-        price: 38000,
+        price: 35000,
 		desc: "2 half chicken , 1 pc seek kabab , 4 pc ch/lollypop , 4 pc ch/wings , 1 znz pizza , 2 butternaan , 1 portion of rice and 1/2 portion curry & 3 types of chips.",
       },
 
       {
         name: "Beef Platter",
-        price: 43000,
+        price: 40000,
 		desc: "4 sticks mishkaki  , 4 sticks nundu , 1 pc seekkabab , 4 pc chops , 1 pc steak , 1 znz pizza , 2 butternaan , 1 portion of rice , 1/2 portion of curry & 3 types of chips.",
       },
 
       {
         name: "Mix Platter(Chicken & Beef)",
-        price: 48000,
+        price: 45000,
 		desc: "4 pc chops , 4 sticks mishkaki , 4 stick nundu , 1/2 sekela , 1 pc seekkabab , 4 pc ch/lollypop , 4 pc ch/wings , 1 znz pizza , 2 butternaan , 1 portion of rice , 1/2 portion of curry & 3 types of chips.",
       },
 
       {
         name: "Seafood PLatter (Small)",
-        price: 48000,
+        price: 45000,
 		desc: "Depends on availability.",
       },
 
        {
         name: "Seafood PLatter (Large)",
-        price: 93000,
+        price: 90000,
 		desc: "Depends on availability.",
       }
     ]
@@ -388,7 +387,7 @@ const MENU_DATA = [
       { name: "Kungu Juice", small: 3000, large: 5000 },
     ],
   },
-	 {
+	  {
     id: "mojito",
     name: "Mojito",
     items: [
@@ -405,9 +404,10 @@ const MENU_DATA = [
     name: "Drinks",
     items: [
       { name: "Soft Drinks", price: 1500 },
-      { name: "Water (1.5 Ltrs)", price: 1000 },
       { name: "Water (500ml)", price: 500 },
-      { name: "Hill Sparkling Water (500ml)", price: 1500 },
+      { name: "Water (1.5 ltrs)", price: 1500 },
+      { name: "Hill Sparkling Water (330ml)", price: 1500 },
+	  { name: "Hill Sparkling Water (750ml)", price: 3500 },
     ],
   }
 ];
