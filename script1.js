@@ -47,7 +47,7 @@ const MENU_DATA = [
       { name: "Malai Boti", price: 10000 },
       { name: "Beef Seekh Kabab", price: 10000 },
       { name: "Chicken Seekh Kabab", price: 10000 },
-      { name: "Chicken Wings", price: 12000 },
+      { name: "Bbq Chicken Wings", price: 12000 },
       { name: "Paneer Tikka", price: 12000 },
       { name: "Mutton Chops", price: 12000 },
       { name: "Bbq Prawns", price: 15000 }
@@ -224,7 +224,7 @@ const MENU_DATA = [
       { name: "Chicken Singapore", price: 12000 },
       { name: "Chicken Lollypop", price: 12000 },
       { name: "Chicken Kolapuri", price: 12000 },
-      { name: "Chicken Wings", price: 12000 },
+      { name: "Chinese Chicken Wings", price: 12000 },
       { name: "Cripsy Chicken", price: 12000 },
       { name: "Crispy Prawns", price: 15000 },
       { name: "Chilly Prawns", price: 15000 },
