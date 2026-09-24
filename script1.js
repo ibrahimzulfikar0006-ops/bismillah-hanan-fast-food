@@ -404,8 +404,8 @@ const MENU_DATA = [
     name: "Drinks",
     items: [
       { name: "Soft Drinks", price: 1500 },
-      { name: "Water (1.5 Ltrs)", price: 1000 },
       { name: "Water (500ml)", price: 500 },
+      { name: "Water (1.5 ltrs)", price: 1500 },
       { name: "Hill Sparkling Water (330ml)", price: 1500 },
 	  { name: "Hill Sparkling Water (750ml)", price: 3500 },
     ],
