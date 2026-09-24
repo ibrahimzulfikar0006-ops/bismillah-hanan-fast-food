@@ -47,7 +47,7 @@ const MENU_DATA = [
       { name: "Malai Boti", price: 10000 },
       { name: "Beef Seekh Kabab", price: 10000 },
       { name: "Chicken Seekh Kabab", price: 10000 },
-      { name: "Chicken Wings", price: 10000 },
+      { name: "Chicken Wings", price: 12000 },
       { name: "Paneer Tikka", price: 12000 },
       { name: "Mutton Chops", price: 12000 },
       { name: "Bbq Prawns", price: 15000 }
@@ -132,7 +132,8 @@ const MENU_DATA = [
       { name: "Beef Noodle", price: 10000 },
       { name: "Prawns Noodle", price: 12000 },
       { name: "Mix Noodle", price: 12000 },
-      { name: "Schezwan Noodle (Chicken/Beef)", price: 12000 }
+	  { name: "Schezwan Noodle (Chicken)", price: 12000 },
+      { name: "Schezwan Noodle (Beef)", price: 12000 }
     ]
   },
 
@@ -277,7 +278,7 @@ const MENU_DATA = [
       { name: "Chicken Pepper Steak", price: 18000 },
       { name: "Hawaii Chicken Steak", price: 18000 },
       { name: "American Chicken Steak", price: 15000 },
-      { name: "Cowboy Chicknen Steak", price: 15000 },
+      { name: "Cowboy Chicken Steak", price: 15000 },
       { name: "Cheese Mustard Chicken Steak", price: 15000 },
       { name: "French Onion Chicken Steak", price: 15000 },
       { name: "Hannan Special Chicken Steak", price: 15000 }
@@ -405,7 +406,8 @@ const MENU_DATA = [
       { name: "Soft Drinks", price: 1500 },
       { name: "Water (1.5 Ltrs)", price: 1000 },
       { name: "Water (500ml)", price: 500 },
-      { name: "Hill Sparkling Water (500ml)", price: 1500 },
+      { name: "Hill Sparkling Water (330ml)", price: 1500 },
+	  { name: "Hill Sparkling Water (750ml)", price: 3500 },
     ],
   }
 ];
