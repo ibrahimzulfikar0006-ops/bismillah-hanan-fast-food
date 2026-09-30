@@ -337,7 +337,7 @@ const MENU_DATA = [
   {
     id: "hanan-platters",
     name: "Platters",
-	note: "Extra charges of takeaway 3,000/= is included in this price"
+	note: "Extra charges of takeaway 3,000/= is included in this price",
 
     items: [
       {
