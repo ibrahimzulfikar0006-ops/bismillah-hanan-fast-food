@@ -454,6 +454,12 @@ let orderType = null; // "delivery" | "pickup" | null
 let selectedDeliveryArea = "";
 let deliveryFee = 0;
 
+/*
+   Optional customer instructions.
+   Available for BOTH Delivery and Pickup.
+*/
+let customerNote = "";
+
 /* ---------- Helpers ---------- */
 
 function formatPrice(n) {
@@ -914,6 +920,98 @@ function createDeliveryAreaFields() {
     return;
   }
 
+  /* =========================================================
+     ADDITIONAL NOTES / SPECIAL INSTRUCTIONS
+     Available for BOTH Delivery and Pickup
+     ========================================================= */
+
+  if (
+    document.getElementById(
+      "customer-notes-wrap"
+    )
+  ) {
+    return;
+  }
+
+  const notesWrap =
+    document.createElement("div");
+
+  notesWrap.id =
+    "customer-notes-wrap";
+
+  notesWrap.className =
+    "cart-notes-wrap";
+
+  const notesLabel =
+    document.createElement("label");
+
+  notesLabel.htmlFor =
+    "customer-notes";
+
+  notesLabel.textContent =
+    "Additional notes / special instructions";
+
+  notesLabel.className =
+    "cart-input-label";
+
+  const notesInput =
+    document.createElement("textarea");
+
+  notesInput.id =
+    "customer-notes";
+
+  notesInput.className =
+    "cart-input cart-textarea";
+
+  notesInput.placeholder =
+    "Tell us how you would like your order...";
+
+  notesInput.setAttribute(
+    "aria-label",
+    "Additional notes or special instructions"
+  );
+
+  notesInput.rows = 3;
+
+  notesInput.addEventListener(
+    "input",
+    () => {
+      customerNote =
+        notesInput.value.trim();
+
+      updateWhatsAppButtonState();
+    }
+  );
+
+  notesWrap.appendChild(
+    notesLabel
+  );
+
+  notesWrap.appendChild(
+    notesInput
+  );
+
+  /*
+     Insert the notes field after
+     the customer contact field.
+  */
+
+  const contactInput =
+    document.getElementById(
+      "customer-contact"
+    );
+
+  if (contactInput) {
+    contactInput.insertAdjacentElement(
+      "afterend",
+      notesWrap
+    );
+  } else {
+    fieldsWrap.appendChild(
+      notesWrap
+    );
+  }
+  
   /* Prevent duplicate creation */
   if (
     document.getElementById(
@@ -1217,6 +1315,11 @@ function updateFieldVisibility() {
     document.getElementById(
       "other-area-wrap"
     );
+	
+	  const notesWrap =
+    document.getElementById(
+      "customer-notes-wrap"
+    );
 
   const chosen =
     Boolean(orderType);
@@ -1260,6 +1363,16 @@ function updateFieldVisibility() {
         selectedDeliveryArea ===
           OTHER_AREA_VALUE
       );
+	  
+	    /*
+     Additional notes are available
+     for BOTH Delivery and Pickup.
+  */
+
+  if (notesWrap) {
+    notesWrap.hidden =
+      !chosen;
+  }
   }
 }
 
@@ -1801,6 +1914,7 @@ function resetOrderForm() {
   orderType = null;
   selectedDeliveryArea = "";
   deliveryFee = 0;
+  customerNote = "";
 
   document
     .querySelectorAll(
@@ -1817,11 +1931,12 @@ function resetOrderForm() {
       );
     });
 
-  [
+    [
     "customer-name",
     "customer-contact",
     "customer-address",
     "customer-other-area",
+    "customer-notes",
   ].forEach((id) => {
     const input =
       document.getElementById(id);
@@ -1886,6 +2001,11 @@ function sendOrderToWhatsApp() {
     document.getElementById(
       "customer-other-area"
     );
+	
+  const notesInput =
+    document.getElementById(
+      "customer-notes"
+    );	
 
   const customerName =
     nameInput
@@ -1910,6 +2030,11 @@ function sendOrderToWhatsApp() {
   const manuallyEnteredArea =
     otherAreaInput
       ? otherAreaInput.value.trim()
+      : "";
+	  
+  const additionalNotes =
+    notesInput
+      ? notesInput.value.trim()
       : "";
 
   const foodTotal =
@@ -1939,19 +2064,31 @@ function sendOrderToWhatsApp() {
 
   /* ---------- Ordered Items ---------- */
 
-  cart.forEach((item) => {
-    lines.push(
-      item.qty +
-        " × " +
-        item.name +
-        " — " +
-        formatPrice(
-          item.price * item.qty
-        )
-    );
-  });
+cart.forEach((item) => {
+  lines.push(
+    item.qty +
+      " × " +
+      item.name +
+      " — " +
+      formatPrice(
+        item.price * item.qty
+      )
+  );
+
+});
+
+lines.push("");
+
+/* ---------- Additional Notes ---------- */
+
+if (additionalNotes) {
+  lines.push(
+    "Additional Notes: " +
+      additionalNotes
+  );
 
   lines.push("");
+}
 
   /* ---------- Customer / Order Details ---------- */
 
@@ -2006,6 +2143,7 @@ function sendOrderToWhatsApp() {
         customerAddress
     );
   }
+  
 
   /* ---------- Totals ---------- */
 
